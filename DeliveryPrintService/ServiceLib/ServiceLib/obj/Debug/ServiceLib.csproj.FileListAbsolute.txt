@@ -31,3 +31,10 @@ G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\ServiceLib\
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\ServiceLib\ServiceLib\obj\Debug\ResolveAssemblyReference.cache
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\ServiceLib\ServiceLib\obj\Debug\ServiceLib.dll
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\ServiceLib\ServiceLib\obj\Debug\ServiceLib.pdb
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\bin\Debug\ServiceLib.dll.config
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\bin\Debug\ServiceLib.dll
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\bin\Debug\ServiceLib.pdb
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\bin\Debug\log4net.dll
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\obj\Debug\ResolveAssemblyReference.cache
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\obj\Debug\ServiceLib.dll
+G:\github\print\DeliveryPrintService\ServiceLib\ServiceLib\obj\Debug\ServiceLib.pdb

@@ -41,3 +41,12 @@ G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\DeliveryPri
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\obj\Debug\ResolveAssemblyReference.cache
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\obj\Debug\DeliveryPrintService.dll
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\obj\Debug\DeliveryPrintService.pdb
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\bin\DeliveryPrintService.dll
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\bin\DeliveryPrintService.pdb
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\bin\MySql.Data.dll
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\bin\ServiceLib.dll
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\bin\log4net.dll
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\bin\ServiceLib.pdb
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\obj\Debug\ResolveAssemblyReference.cache
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\obj\Debug\DeliveryPrintService.dll
+G:\github\print\DeliveryPrintService\DeliveryPrintService\DeliveryPrintService\obj\Debug\DeliveryPrintService.pdb

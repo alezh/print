@@ -105,14 +105,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="柠檬绿茶团购打印.exe" size="2423808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="柠檬绿茶团购打印.exe" size="2424832">
       <assemblyIdentity name="柠檬绿茶团购打印" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>vwcFM6zmgQOi+SoUn/2Pxqe8xW0=</dsig:DigestValue>
+        <dsig:DigestValue>j8qzwjrgP+tZyxiALTgGGO+v1BE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -124,7 +124,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>nfo2IAW8a5foSbS7aGTv2NF60gw=</dsig:DigestValue>
+        <dsig:DigestValue>lwj5oH6+dNFGFl8ZIGsoOnIjY4M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

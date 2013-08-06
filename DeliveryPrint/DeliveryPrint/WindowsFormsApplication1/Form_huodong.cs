@@ -16,11 +16,11 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             Up = new List<int>();
-            Inte = new List<int>();
+            Inset = new List<int>();
         }
-        public DataTable hd;
+        public DataTable hd;//活动信息
         public string Seller_ID;
-        public DataTable de;
+        
         private DataTable UpIntSql;
 
         private string Uhdn = string.Empty;
@@ -29,25 +29,31 @@ namespace WindowsFormsApplication1
        private string Utitle = string.Empty;
        private string cfg = string.Empty;
        private List<int> Up; //需要更新的行
-       private List<int> Inte; //需要添加的行
+       private List<int> Inset; //需要添加的行
         DeliveryPrintService.DeliveryPrintService MyService = new DeliveryPrintService.DeliveryPrintService();
         
         public void locd()        {
             dataGridView1.DataSource = null;
+            UpIntSql = new DataTable();
+            UpIntSql.Columns.Add("活动名称", Type.GetType("System.String"));
+            UpIntSql.Columns.Add("店铺名称", Type.GetType("System.String"));
+            UpIntSql.Columns.Add("商品货号", Type.GetType("System.String"));
+            UpIntSql.Columns.Add("商品全名", Type.GetType("System.String"));          
+            DataRow cku = UpIntSql.NewRow();
+            foreach( DataRow row in hd.Rows){
+                cku["活动名称"] = row["hdname"];
+                cku["店铺名称"] = row["seller"];
+                cku["商品货号"] = row["pcode"];
+                cku["商品全名"] = row["title"];            
+            UpIntSql.Rows.Add(cku);      }     
             //Thread.Sleep(600);
-            de = removeTable(hd);
-            dataGridView1.DataSource = de; 
+            
+            dataGridView1.DataSource = removeTable(hd); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            save();
-            //object dt=dataGridView1.DataSource;
-            //DataTable dt1 = dt as DataTable;
-            //foreach (DataRow row in dt1.Rows)
-            //{
-
-            //}
+            save();          
         }
 
 
@@ -65,11 +71,6 @@ namespace WindowsFormsApplication1
             return dt;
         }
 
-
-        public void delsql()
-        {
-       
-        }
         /// <summary>
         /// 右键菜单
         /// </summary>
@@ -111,18 +112,20 @@ namespace WindowsFormsApplication1
                    MessageBoxDefaultButton.Button1);
             if (dlResult == DialogResult.Yes)
             {
-                string hd = (string)dataGridView1.CurrentRow.Cells[0].Value;    //接受获取选定行的主键的值
-                string sell = (string)dataGridView1.CurrentRow.Cells[1].Value;
-                string code = (string)dataGridView1.CurrentRow.Cells[2].Value;
-                string title = (string)dataGridView1.CurrentRow.Cells[3].Value;
-                string sellid = Seller_ID;
-                O=MyService.Deupinhd(hd, sell, code, title, sellid, cfg, "", "", "", "");                
+                string hd = dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[0].Value : string.Empty;   //接受获取选定行的主键的值
+                string sell = dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value? (string)dataGridView1.CurrentRow.Cells[1].Value : string.Empty;
+                string code = dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value?(string)dataGridView1.CurrentRow.Cells[2].Value : string.Empty;
+                string title = dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value?(string)dataGridView1.CurrentRow.Cells[3].Value : string.Empty;
+                if (string.IsNullOrEmpty(hd) && string.IsNullOrEmpty(sell) && string.IsNullOrEmpty(code) && string.IsNullOrEmpty(title))
+                    O = MyService.Deupinhd(hd, sell, code, title, Seller_ID, cfg, "", "", "", "");
+                else
+                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
             }
             if (O)
             {
                 dataGridView1.Rows.Remove(dataGridView1.CurrentRow);//删除焦点所在的那一行后
                 MessageBox.Show("成功删除");
-                if (dataGridView1.Rows.Count == 0)
+                if (dataGridView1.Rows.Count == 1)
                 {
                     MessageBox.Show("没有活动，关闭窗口。");
                     Dispose();
@@ -165,12 +168,12 @@ namespace WindowsFormsApplication1
             //去掉重复
             List<int> a = (from x in Up select x).Distinct().ToList();             
             //区分更新 
-            List<int> b = a.Except((from x1 in Inte select x1).Distinct().ToList()).ToList();
+            List<int> b = a.Except((from x1 in Inset select x1).Distinct().ToList()).ToList();
             //区分出新增
-            List<int> c = Inte.Except(b).ToList();
+            List<int> c = Inset.Except(b).ToList();
             foreach (int k in b)
             {
-                UpHd(k);
+                //UpHd(k);
             }
             foreach (int p in c)
             { 
@@ -180,15 +183,25 @@ namespace WindowsFormsApplication1
        
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-                        
-            if (dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value)
+            int xing = dataGridView1.CurrentRow.Index;
+            //if (de.Rows[xing]["hdname"] != null && de.Rows[xing]["pcode"] != null && de.Rows[xing]["seller"] != null && de.Rows[xing]["title"] != null)
+            if ( de.Rows.Count>xing)
             {
                 Up.Add(dataGridView1.CurrentRow.Index);//添加需要更新的行
             }
-            else if (dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value &&( dataGridView1.CurrentRow.Cells[1].Value == DBNull.Value || dataGridView1.CurrentRow.Cells[2].Value == DBNull.Value || dataGridView1.CurrentRow.Cells[3].Value == DBNull.Value))
+            else
             {
-                Inte.Add(dataGridView1.CurrentRow.Index);//添加需要新增的行
+                Inset.Add(dataGridView1.CurrentRow.Index);//添加需要新增的行
             }
+                       
+            //if (dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value)
+            //{
+            //    Up.Add(dataGridView1.CurrentRow.Index);//添加需要更新的行
+            //}
+            //else if (dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value &&( dataGridView1.CurrentRow.Cells[1].Value == DBNull.Value || dataGridView1.CurrentRow.Cells[2].Value == DBNull.Value || dataGridView1.CurrentRow.Cells[3].Value == DBNull.Value))
+            //{
+            //    Inset.Add(dataGridView1.CurrentRow.Index);//添加需要新增的行                
+            //}
             
         }
 
@@ -196,8 +209,7 @@ namespace WindowsFormsApplication1
         {
             if (dataGridView1.CurrentRow != null)
             {
-                //if (dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value != DBNull.Value)
-                //    Inte.Add(dataGridView1.CurrentRow.Index); //添加需要新增的行
+               
             }
         }
         /// <summary>
@@ -206,7 +218,31 @@ namespace WindowsFormsApplication1
         /// <param name="k"></param>
         private void UpHd(int k)
         {
+            bool O = false;
             Uhdn = dataGridView1.Rows[k].Cells[0].Value.ToString();
+            Usell = dataGridView1.Rows[k].Cells[1].Value.ToString();
+            Ucode = dataGridView1.Rows[k].Cells[2].Value.ToString();
+            Utitle = dataGridView1.Rows[k].Cells[3].Value.ToString();
+            string H = UpIntSql.Rows[k]["hdname"].ToString();
+            string C = UpIntSql.Rows[k]["pcode"].ToString();
+            string S = UpIntSql.Rows[k]["seller"].ToString();
+            string T = UpIntSql.Rows[k]["title"].ToString();
+            O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "1", H, S, C, T);
+            
+        }
+
+        private void inset(int k)
+        {
+            bool O = false;
+            Uhdn = dataGridView1.Rows[k].Cells[0].Value.ToString();
+            Usell = dataGridView1.Rows[k].Cells[0].Value.ToString();
+            Ucode = dataGridView1.Rows[k].Cells[0].Value.ToString();
+            Utitle = dataGridView1.Rows[k].Cells[0].Value.ToString();
+            string H = de.Rows[k]["hdname"].ToString();
+            string C = de.Rows[k]["pcode"].ToString();
+            string S = de.Rows[k]["seller"].ToString();
+            string T = de.Rows[k]["title"].ToString();
+            O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "1", H, S, C, T);
         }
 
         private void button2_Click(object sender, EventArgs e)

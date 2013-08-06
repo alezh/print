@@ -95,7 +95,7 @@ namespace ServiceLib.DA
         public string[] GetorderNum(string sellename, string hdname, string time)
         {
             //List<ProductOrderInfo> pd = new List<ProductOrderInfo>();
-            List<string> st = new List<string>();
+            //List<string> st = new List<string>();
             string[] sr;
             int isprint=0;//打印数量
             int noprint=0;//未打印数量
@@ -117,11 +117,11 @@ namespace ServiceLib.DA
                     outNum++;
             }
             sr = new string[] { isprint.ToString(), noprint.ToString(), outNum.ToString(), count.ToString() };
-            st.Add(isprint.ToString());
-            st.Add(noprint.ToString());
-            st.Add(outNum.ToString());
-            st.Add(count.ToString());
-            dataContext.Dispose();
+            //st.Add(isprint.ToString());
+            //st.Add(noprint.ToString());
+            //st.Add(outNum.ToString());
+            //st.Add(count.ToString());
+            //dataContext.Dispose();
             return sr;
         }
 
