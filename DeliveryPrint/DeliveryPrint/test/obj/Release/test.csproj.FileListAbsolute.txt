@@ -20,3 +20,14 @@ G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrint\DeliveryPrint\test
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrint\DeliveryPrint\test\obj\Release\test.exe
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrint\DeliveryPrint\test\obj\Release\test.pdb
 G:\刘殷嘉\双12专用打印(团购的代码)\DeliveryPrint\DeliveryPrint\test\obj\Release\test.XmlSerializers.dll
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.exe.config
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.exe
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.XmlSerializers.dll
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.pdb
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\ResolveAssemblyReference.cache
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.Form1.resources
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.Properties.Resources.resources
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.csproj.GenerateResource.Cache
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.exe
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.pdb
+G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.XmlSerializers.dll
