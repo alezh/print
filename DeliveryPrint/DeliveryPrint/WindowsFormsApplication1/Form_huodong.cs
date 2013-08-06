@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -14,8 +15,8 @@ namespace WindowsFormsApplication1
         public Form_huodong()
         {
             InitializeComponent();
-            Up = new List<string>();
-            Inte = new List<string>();
+            Up = new List<int>();
+            Inte = new List<int>();
         }
         public DataTable hd;
         public string Seller_ID;
@@ -30,15 +31,17 @@ namespace WindowsFormsApplication1
        private List<int> Up; //需要更新的行
        private List<int> Inte; //需要添加的行
         DeliveryPrintService.DeliveryPrintService MyService = new DeliveryPrintService.DeliveryPrintService();
+        
         public void locd()        {
-           
-            
+            dataGridView1.DataSource = null;
+            //Thread.Sleep(600);
             de = removeTable(hd);
             dataGridView1.DataSource = de; 
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {            
+        {
+            save();
             //object dt=dataGridView1.DataSource;
             //DataTable dt1 = dt as DataTable;
             //foreach (DataRow row in dt1.Rows)
@@ -119,7 +122,11 @@ namespace WindowsFormsApplication1
             {
                 dataGridView1.Rows.Remove(dataGridView1.CurrentRow);//删除焦点所在的那一行后
                 MessageBox.Show("成功删除");
-                 
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("没有活动，关闭窗口。");
+                    Dispose();
+                }
             }
             else
             {
@@ -132,7 +139,7 @@ namespace WindowsFormsApplication1
             DeliveryPrintService.myheader myheader = new DeliveryPrintService.myheader();
             myheader.username = "nmlch-2012-byken";
             MyService.myheaderValue = myheader;
-            dataGridView1.DataSource = null;
+            
         }
         private void UI()
         {
@@ -153,8 +160,22 @@ namespace WindowsFormsApplication1
             else
                 return; 
         }
-        private void Up()
-        { 
+        private void save()
+        {
+            //去掉重复
+            List<int> a = (from x in Up select x).Distinct().ToList();             
+            //区分更新 
+            List<int> b = a.Except((from x1 in Inte select x1).Distinct().ToList()).ToList();
+            //区分出新增
+            List<int> c = Inte.Except(b).ToList();
+            foreach (int k in b)
+            {
+                UpHd(k);
+            }
+            foreach (int p in c)
+            { 
+
+            }
         }
        
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -162,35 +183,12 @@ namespace WindowsFormsApplication1
                         
             if (dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value)
             {
-                cfg = "1";
                 Up.Add(dataGridView1.CurrentRow.Index);//添加需要更新的行
             }
-            //if (cfg == "3"  && dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value)
-            //{
-            //    return;
-            //}
-            //UpIntSql = new DataTable();
-            //UpIntSql.Columns.Add("活动名称", Type.GetType("System.String"));
-            //UpIntSql.Columns.Add("店铺名称", Type.GetType("System.String"));
-            //UpIntSql.Columns.Add("商品货号", Type.GetType("System.String"));
-            //UpIntSql.Columns.Add("商品全名", Type.GetType("System.String"));
-            //UpIntSql.Columns.Add("Seller_ID", Type.GetType("System.String"));
-            //UpIntSql.Columns.Add("cfg", Type.GetType("System.String"));
-            //DataRow cku = UpIntSql.NewRow();
-            //        cku["活动名称"] = Uhdn;
-            //        cku["店铺名称"] = Usell;
-            //        cku["商品货号"] = Ucode;
-            //        cku["商品全名"] = Utitle;
-            //        cku["Seller_ID"] = Seller_ID;
-            //        cku["cfg"] = cfg;
-            //DialogResult dlResult = MessageBox.Show(this, "是否现在更新！继续填写按否", "更新确认",
-            //               MessageBoxButtons.YesNo,
-            //               MessageBoxIcon.Question,
-            //               MessageBoxDefaultButton.Button1);
-            //if (dlResult == DialogResult.Yes)
-            //{
-            //    de.Rows.Add(cku);
-            //}
+            else if (dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value &&( dataGridView1.CurrentRow.Cells[1].Value == DBNull.Value || dataGridView1.CurrentRow.Cells[2].Value == DBNull.Value || dataGridView1.CurrentRow.Cells[3].Value == DBNull.Value))
+            {
+                Inte.Add(dataGridView1.CurrentRow.Index);//添加需要新增的行
+            }
             
         }
 
@@ -198,12 +196,23 @@ namespace WindowsFormsApplication1
         {
             if (dataGridView1.CurrentRow != null)
             {
-                cfg = "3";
-                Inte.Add(dataGridView1.CurrentRow.Index); //添加需要新增的行
+                //if (dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value != DBNull.Value)
+                //    Inte.Add(dataGridView1.CurrentRow.Index); //添加需要新增的行
             }
         }
+        /// <summary>
+        /// 更新活动
+        /// </summary>
+        /// <param name="k"></param>
+        private void UpHd(int k)
+        {
+            Uhdn = dataGridView1.Rows[k].Cells[0].Value.ToString();
+        }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            locd();
+        }
 
 
     }
@@ -213,3 +222,32 @@ namespace WindowsFormsApplication1
     
 
 }
+
+
+
+//if (cfg == "3"  && dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value && dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value)
+//{
+//    return;
+//}
+//UpIntSql = new DataTable();
+//UpIntSql.Columns.Add("活动名称", Type.GetType("System.String"));
+//UpIntSql.Columns.Add("店铺名称", Type.GetType("System.String"));
+//UpIntSql.Columns.Add("商品货号", Type.GetType("System.String"));
+//UpIntSql.Columns.Add("商品全名", Type.GetType("System.String"));
+//UpIntSql.Columns.Add("Seller_ID", Type.GetType("System.String"));
+//UpIntSql.Columns.Add("cfg", Type.GetType("System.String"));
+//DataRow cku = UpIntSql.NewRow();
+//        cku["活动名称"] = Uhdn;
+//        cku["店铺名称"] = Usell;
+//        cku["商品货号"] = Ucode;
+//        cku["商品全名"] = Utitle;
+//        cku["Seller_ID"] = Seller_ID;
+//        cku["cfg"] = cfg;
+//DialogResult dlResult = MessageBox.Show(this, "是否现在更新！继续填写按否", "更新确认",
+//               MessageBoxButtons.YesNo,
+//               MessageBoxIcon.Question,
+//               MessageBoxDefaultButton.Button1);
+//if (dlResult == DialogResult.Yes)
+//{
+//    de.Rows.Add(cku);
+//}
