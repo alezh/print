@@ -104,6 +104,11 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            if (Up.Count > 0 || Inset.Count > 0)
+            {
+                MessageBox.Show("你不能在有更新或新增时删除活动");
+                return;
+            }
             bool O = false;
             string cfg = "2";
             DialogResult dlResult = MessageBox.Show(this,"确定要删除活动吗？", "请确认",
@@ -112,7 +117,7 @@ namespace WindowsFormsApplication1
                    MessageBoxDefaultButton.Button1);
             if (dlResult == DialogResult.Yes)
             {
-                string hd = dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[0].Value : string.Empty;   //接受获取选定行的主键的值
+                string hd = dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[0].Value : string.Empty;  
                 string sell = dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value? (string)dataGridView1.CurrentRow.Cells[1].Value : string.Empty;
                 string code = dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value?(string)dataGridView1.CurrentRow.Cells[2].Value : string.Empty;
                 string title = dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value?(string)dataGridView1.CurrentRow.Cells[3].Value : string.Empty;
@@ -124,6 +129,7 @@ namespace WindowsFormsApplication1
             if (O)
             {
                 dataGridView1.Rows.Remove(dataGridView1.CurrentRow);//删除焦点所在的那一行后
+                UpIntSql.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
                 MessageBox.Show("成功删除");
                 if (dataGridView1.Rows.Count == 1)
                 {
@@ -173,11 +179,11 @@ namespace WindowsFormsApplication1
             List<int> c = Inset.Except(b).ToList();
             foreach (int k in b)
             {
-                //UpHd(k);
+                UpHd(k);
             }
             foreach (int p in c)
-            { 
-
+            {
+                inset(p);
             }
         }
        
@@ -219,30 +225,56 @@ namespace WindowsFormsApplication1
         private void UpHd(int k)
         {
             bool O = false;
-            Uhdn = dataGridView1.Rows[k].Cells[0].Value.ToString();
-            Usell = dataGridView1.Rows[k].Cells[1].Value.ToString();
-            Ucode = dataGridView1.Rows[k].Cells[2].Value.ToString();
-            Utitle = dataGridView1.Rows[k].Cells[3].Value.ToString();
-            string H = UpIntSql.Rows[k]["hdname"].ToString();
-            string C = UpIntSql.Rows[k]["pcode"].ToString();
-            string S = UpIntSql.Rows[k]["seller"].ToString();
-            string T = UpIntSql.Rows[k]["title"].ToString();
-            O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "1", H, S, C, T);
+           string Uhdn1 = dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[0].Value : string.Empty;
+           string Usell1 = dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[1].Value : string.Empty;
+           string Ucode1 = dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[2].Value : string.Empty;
+           string Utitle1 = dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[3].Value : string.Empty;
+           if (string.IsNullOrEmpty(Uhdn1) && string.IsNullOrEmpty(Usell1) && string.IsNullOrEmpty(Ucode1) && string.IsNullOrEmpty(Utitle1))
+           {
+               string H = UpIntSql.Rows[k]["hdname"].ToString();
+               string C = UpIntSql.Rows[k]["pcode"].ToString();
+               string S = UpIntSql.Rows[k]["seller"].ToString();
+               string T = UpIntSql.Rows[k]["title"].ToString();
+               O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "1", H, S, C, T);
+               if (0)
+               {
+                   MessageBox.Show("保存成功！");
+               }
+               else
+               {
+                   MessageBox.Show("保存失败！");
+               }
+           }
+           else
+           {
+               MessageBox.Show("保存活动必须填写完整！");
+           }
             
         }
 
         private void inset(int k)
         {
             bool O = false;
-            Uhdn = dataGridView1.Rows[k].Cells[0].Value.ToString();
-            Usell = dataGridView1.Rows[k].Cells[0].Value.ToString();
-            Ucode = dataGridView1.Rows[k].Cells[0].Value.ToString();
-            Utitle = dataGridView1.Rows[k].Cells[0].Value.ToString();
-            string H = de.Rows[k]["hdname"].ToString();
-            string C = de.Rows[k]["pcode"].ToString();
-            string S = de.Rows[k]["seller"].ToString();
-            string T = de.Rows[k]["title"].ToString();
-            O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "1", H, S, C, T);
+            string Uhdn1 = dataGridView1.CurrentRow.Cells[0].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[0].Value : string.Empty;
+            string Usell1 = dataGridView1.CurrentRow.Cells[1].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[1].Value : string.Empty;
+            string Ucode1 = dataGridView1.CurrentRow.Cells[2].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[2].Value : string.Empty;
+            string Utitle1 = dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[3].Value : string.Empty;
+            if (string.IsNullOrEmpty(Uhdn1) && string.IsNullOrEmpty(Usell1) && string.IsNullOrEmpty(Ucode1) && string.IsNullOrEmpty(Utitle1))
+            {
+                O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "3", "", "", "", "");
+                if (0)
+                {
+                    MessageBox.Show("保存成功！");
+                }
+                else
+                {
+                    MessageBox.Show("保存失败！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("保存活动必须填写完整！");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
