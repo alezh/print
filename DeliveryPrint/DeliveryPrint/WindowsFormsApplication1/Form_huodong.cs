@@ -235,7 +235,7 @@ namespace WindowsFormsApplication1
                string C = UpIntSql.Rows[k]["pcode"].ToString();
                string S = UpIntSql.Rows[k]["seller"].ToString();
                string T = UpIntSql.Rows[k]["title"].ToString();
-               O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "1", H, S, C, T);
+               O = MyService.Deupinhd(Uhdn1, Usell1, Ucode1, Utitle1, Seller_ID, "1", H, S, C, T);
                if (0)
                {
                    MessageBox.Show("保存成功！");
@@ -261,7 +261,7 @@ namespace WindowsFormsApplication1
             string Utitle1 = dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value ? (string)dataGridView1.CurrentRow.Cells[3].Value : string.Empty;
             if (string.IsNullOrEmpty(Uhdn1) && string.IsNullOrEmpty(Usell1) && string.IsNullOrEmpty(Ucode1) && string.IsNullOrEmpty(Utitle1))
             {
-                O = MyService.Deupinhd(Uhdn, Usell, Ucode, Utitle, Seller_ID, "3", "", "", "", "");
+                O = MyService.Deupinhd(Uhdn1, Usell1, Ucode1, Utitle1, Seller_ID, "3", "", "", "", "");
                 if (0)
                 {
                     MessageBox.Show("保存成功！");
