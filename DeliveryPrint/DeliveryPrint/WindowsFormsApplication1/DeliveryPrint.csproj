@@ -140,6 +140,12 @@
     <Compile Include="Form_PrintAllOk.Designer.cs">
       <DependentUpon>Form_PrintAllOk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_user.Designer.cs">
+      <DependentUpon>Form_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryDetails.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,6 +264,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_PrintAllOk.resx">
       <DependentUpon>Form_PrintAllOk.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_user.resx">
+      <DependentUpon>Form_user.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryDetails.rpt">

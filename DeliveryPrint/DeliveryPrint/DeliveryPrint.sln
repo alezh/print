@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryPrint", "WindowsFormsApplication1\DeliveryPrint.csproj", "{B2EE92D1-FDCC-4DCB-9AF5-6DBF395C8E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaoBao", "..\..\TaoBao\TaoBao.csproj", "{0F1FE619-25A5-40B9-9593-30A270FDF0DE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPShare", "..\..\DPShare\DPShare.csproj", "{289DD553-D1F3-4F9F-87E6-0F88FE1E7371}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{505E6D1E-0170-4E1B-B381-516571E60B6A}"
 EndProject
 Global
@@ -19,14 +15,6 @@ Global
 		{B2EE92D1-FDCC-4DCB-9AF5-6DBF395C8E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2EE92D1-FDCC-4DCB-9AF5-6DBF395C8E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2EE92D1-FDCC-4DCB-9AF5-6DBF395C8E3B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F1FE619-25A5-40B9-9593-30A270FDF0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F1FE619-25A5-40B9-9593-30A270FDF0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F1FE619-25A5-40B9-9593-30A270FDF0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F1FE619-25A5-40B9-9593-30A270FDF0DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{289DD553-D1F3-4F9F-87E6-0F88FE1E7371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{289DD553-D1F3-4F9F-87E6-0F88FE1E7371}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{289DD553-D1F3-4F9F-87E6-0F88FE1E7371}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{289DD553-D1F3-4F9F-87E6-0F88FE1E7371}.Release|Any CPU.Build.0 = Release|Any CPU
 		{505E6D1E-0170-4E1B-B381-516571E60B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{505E6D1E-0170-4E1B-B381-516571E60B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505E6D1E-0170-4E1B-B381-516571E60B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU

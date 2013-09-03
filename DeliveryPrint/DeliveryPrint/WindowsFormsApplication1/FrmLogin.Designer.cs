@@ -38,6 +38,7 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.新增用户与激活ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,8 @@
             // 管理ToolStripMenuItem
             // 
             this.管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.解锁用户ToolStripMenuItem});
+            this.解锁用户ToolStripMenuItem,
+            this.新增用户与激活ToolStripMenuItem});
             this.管理ToolStripMenuItem.Name = "管理ToolStripMenuItem";
             this.管理ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.管理ToolStripMenuItem.Text = "管理";
@@ -71,7 +73,7 @@
             // 解锁用户ToolStripMenuItem
             // 
             this.解锁用户ToolStripMenuItem.Name = "解锁用户ToolStripMenuItem";
-            this.解锁用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.解锁用户ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.解锁用户ToolStripMenuItem.Text = "解锁用户";
             this.解锁用户ToolStripMenuItem.Click += new System.EventHandler(this.解锁用户ToolStripMenuItem_Click);
             // 
@@ -121,6 +123,12 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
+            // 新增用户与激活ToolStripMenuItem
+            // 
+            this.新增用户与激活ToolStripMenuItem.Name = "新增用户与激活ToolStripMenuItem";
+            this.新增用户与激活ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.新增用户与激活ToolStripMenuItem.Text = "新增用户与激活";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -161,6 +169,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.ToolStripMenuItem 管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 解锁用户ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 新增用户与激活ToolStripMenuItem;
 
     }
 }

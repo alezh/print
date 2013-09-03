@@ -3783,7 +3783,8 @@ namespace WindowsFormsApplication1
             gethdname();
             setallenable();
             Form_huodong hdname = new Form_huodong();
-            hdname.Seller_ID = Seller_ID;            
+            hdname.Seller_ID = Seller_ID;
+            hdname.address = m_Address;
             hdname.Show();
             hdname.hd = ll;            
             hdname.Activate();

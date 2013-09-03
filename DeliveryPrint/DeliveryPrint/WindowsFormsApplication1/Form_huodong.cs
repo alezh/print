@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
         }
         public DataTable hd;//活动信息
         public string Seller_ID;
-        
+        public string address { get; set; }
         private DataTable UpIntSql;
 
         private string Uhdn = string.Empty;
@@ -146,6 +146,7 @@ namespace WindowsFormsApplication1
         private void Form_huodong_Load(object sender, EventArgs e)
         {
             DeliveryPrintService.myheader myheader = new DeliveryPrintService.myheader();
+            MyService.Url = "http://" + address + "/DeliveryPrintService.asmx";
             myheader.username = "nmlch-2012-byken";
             MyService.myheaderValue = myheader;
             
