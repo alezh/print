@@ -209,7 +209,6 @@ namespace ServiceLib.DA
                     update double12.dbo.ProductOrderInfo  set Paccount=@paccount,IsRead=1 from #mmm2 where  double12.dbo.ProductOrderInfo.id=#mmm2.id;
                     select * from #mmm2;
                     drop table #mmm2;
-
                     commit tran st2
                         ");
 
@@ -507,7 +506,6 @@ namespace ServiceLib.DA
         #endregion
 
         //#region 登录
-
         ///// <summary>
         ///// 登录
         ///// </summary>
