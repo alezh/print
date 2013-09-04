@@ -192,7 +192,7 @@ namespace WindowsFormsApplication1
         {
             int xing = dataGridView1.CurrentRow.Index;
             //if (de.Rows[xing]["hdname"] != null && de.Rows[xing]["pcode"] != null && de.Rows[xing]["seller"] != null && de.Rows[xing]["title"] != null)
-            if ( de.Rows.Count>xing)
+            if (UpIntSql.Rows.Count > xing)
             {
                 Up.Add(dataGridView1.CurrentRow.Index);//添加需要更新的行
             }
@@ -237,7 +237,7 @@ namespace WindowsFormsApplication1
                string S = UpIntSql.Rows[k]["seller"].ToString();
                string T = UpIntSql.Rows[k]["title"].ToString();
                O = MyService.Deupinhd(Uhdn1, Usell1, Ucode1, Utitle1, Seller_ID, "1", H, S, C, T);
-               if (0)
+               if (O)
                {
                    MessageBox.Show("保存成功！");
                }
@@ -263,7 +263,7 @@ namespace WindowsFormsApplication1
             if (string.IsNullOrEmpty(Uhdn1) && string.IsNullOrEmpty(Usell1) && string.IsNullOrEmpty(Ucode1) && string.IsNullOrEmpty(Utitle1))
             {
                 O = MyService.Deupinhd(Uhdn1, Usell1, Ucode1, Utitle1, Seller_ID, "3", "", "", "", "");
-                if (0)
+                if (O)
                 {
                     MessageBox.Show("保存成功！");
                 }

@@ -404,8 +404,7 @@ namespace ServiceLib.DA
 
         public DataTable GetHdNameAll(string Seller_ID)
         {
-            DataTable dt = new DataTable();
-            //List<string > ll=new List<string>();
+            DataTable dt = new DataTable();            
             try
             {
                 string sql = "SELECT hdname,seller,pcode,title,Seller_ID FROM HuoDong with(nolock) where Seller_ID='" + Seller_ID + "'";
@@ -503,6 +502,26 @@ namespace ServiceLib.DA
             }
         }
 
+        #endregion
+
+
+        #region 激活
+        public bool loginlock(string user, string pass,string session)
+        {
+            string sql = "select * from dbo.ProviderUser where Account='" + user + "'";
+            string sql2 = string.Format(@"insert dbo.ProviderUser(Account,[Password],UserRole,Seller_ID,cPersonCode,Seller_Iid)values
+                                                ('{0}','{1}','0','00','01010','00')
+                                                  declare @id int set @id=SCOPE_IDENTITY()
+                                                                       update  dbo.ProviderUser set Seller_ID=id, Seller_Iid=id
+                                                                       where id=@id",user,pass);
+            if (SqlHelper.ExecuteDataset(SqlHelper.Double12Con, CommandType.Text, sql).Tables[0].Rows == null)
+            {
+              return  SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, Sql) > 0 ? true : false;
+            }else
+                return false;
+            string sess = string.Format(@"insert dbo.TaoBaoShopAPI(ShopName,session_id,app_key,aap_secret)values
+                                                 ('{0}','{1}','{2}','{3}')",user ,pass,session);
+        }
         #endregion
 
         //#region 登录

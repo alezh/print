@@ -266,6 +266,13 @@ namespace WindowsFormsApplication1
             nf.Activate();
        
         }
+
+        private void 新增用户与激活ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_user user = new Form_user();
+            user.Show();
+            user.Activate();
+        }
         
         ///// <summary>
         ///// 读取PathConfig.xml文件

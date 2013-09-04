@@ -12,12 +12,13 @@ namespace ServiceLib.DA
 {
     class DeliveryPrintDA
     {
-        private const string LoginCheckSQL = "SELECT * FROM ProviderUser with(nolock) where cPersonCode=@cPersonCode and Password=@Password  and IsDelete=0";
+        //private const string LoginCheckSQL = "SELECT * FROM ProviderUser with(nolock) where cPersonCode=@cPersonCode and Password=@Password  and IsDelete=0";
 
-        
+        private const string LoginCheckSQL = "SELECT * FROM ProviderUser with(nolock) where Account=@Account and Password=@Password  and IsDelete=0";
 
         private const string CPersonCode = "@cPersonCode";
         private const string Password = "@Password";
+        const string Account = "@Account";
         //private const string Delivery = "@delivery";
         //private const string Cdlcode = "@cdlcode";
         //private const string Ifquantity = "@iFQuantity";
@@ -235,7 +236,7 @@ namespace ServiceLib.DA
             {
                 SqlParameter[] parms = new SqlParameter[]
                 { 
-                    new SqlParameter(CPersonCode, SqlDbType.VarChar),
+                    new SqlParameter(Account, SqlDbType.VarChar),
                     new SqlParameter(Password,SqlDbType.NVarChar)
                 };
                 parms[0].Value = userName;

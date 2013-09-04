@@ -33,12 +33,12 @@
             this.tsmSystemSet = new System.Windows.Forms.ToolStripMenuItem();
             this.管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.解锁用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新增用户与激活ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.新增用户与激活ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +67,8 @@
             this.解锁用户ToolStripMenuItem,
             this.新增用户与激活ToolStripMenuItem});
             this.管理ToolStripMenuItem.Name = "管理ToolStripMenuItem";
-            this.管理ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.管理ToolStripMenuItem.Text = "管理";
+            this.管理ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.管理ToolStripMenuItem.Text = "新账号激活";
             // 
             // 解锁用户ToolStripMenuItem
             // 
@@ -76,6 +76,13 @@
             this.解锁用户ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.解锁用户ToolStripMenuItem.Text = "解锁用户";
             this.解锁用户ToolStripMenuItem.Click += new System.EventHandler(this.解锁用户ToolStripMenuItem_Click);
+            // 
+            // 新增用户与激活ToolStripMenuItem
+            // 
+            this.新增用户与激活ToolStripMenuItem.Name = "新增用户与激活ToolStripMenuItem";
+            this.新增用户与激活ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.新增用户与激活ToolStripMenuItem.Text = "新增用户与激活";
+            this.新增用户与激活ToolStripMenuItem.Click += new System.EventHandler(this.新增用户与激活ToolStripMenuItem_Click);
             // 
             // txtPassword
             // 
@@ -122,12 +129,6 @@
             this.btnLogin.Text = "登入";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
-            // 
-            // 新增用户与激活ToolStripMenuItem
-            // 
-            this.新增用户与激活ToolStripMenuItem.Name = "新增用户与激活ToolStripMenuItem";
-            this.新增用户与激活ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.新增用户与激活ToolStripMenuItem.Text = "新增用户与激活";
             // 
             // FrmLogin
             // 
