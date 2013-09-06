@@ -3,16 +3,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
+
 <head runat="server">
     <title>无标题页</title>
+
 </head>
+
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        <asp:TextBox ID="TextBox1" runat="server" Width="855px"></asp:TextBox>
-    
-    </div>
+    <div>    
+        <asp:TextBox ID="TextBox1" runat="server" Width="772px"></asp:TextBox>
+    <input type="button" name="anniu1" onClick='bb()' value="复制"> </input>
+
+    </div>    
     </form>
 </body>
 </html>

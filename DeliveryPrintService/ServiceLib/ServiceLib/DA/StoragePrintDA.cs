@@ -516,7 +516,7 @@ namespace ServiceLib.DA
                                                                        where id=@id",user,pass);
             if (SqlHelper.ExecuteDataset(SqlHelper.Double12Con, CommandType.Text, sql).Tables[0].Rows == null)
             {
-              return  SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, Sql) > 0 ? true : false;
+                return SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, sql2) > 0 ? true : false;
             }else
                 return false;
             string sess = string.Format(@"insert dbo.TaoBaoShopAPI(ShopName,session_id,app_key,aap_secret)values
