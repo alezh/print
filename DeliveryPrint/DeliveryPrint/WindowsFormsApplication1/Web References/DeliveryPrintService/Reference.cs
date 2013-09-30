@@ -66,6 +66,10 @@ namespace WindowsFormsApplication1.DeliveryPrintService {
         
         private System.Threading.SendOrPostCallback LoginCheckOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ordersOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback regOperationCompleted;
+        
         private System.Threading.SendOrPostCallback DeupinhdOperationCompleted;
         
         private System.Threading.SendOrPostCallback RUserOperationCompleted;
@@ -181,6 +185,12 @@ namespace WindowsFormsApplication1.DeliveryPrintService {
         
         /// <remarks/>
         public event LoginCheckCompletedEventHandler LoginCheckCompleted;
+        
+        /// <remarks/>
+        public event ordersCompletedEventHandler ordersCompleted;
+        
+        /// <remarks/>
+        public event regCompletedEventHandler regCompleted;
         
         /// <remarks/>
         public event DeupinhdCompletedEventHandler DeupinhdCompleted;
@@ -771,6 +781,84 @@ namespace WindowsFormsApplication1.DeliveryPrintService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("myheaderValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/orders", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool orders(string tid, string Provinces, string City, string District, string Address, string Consignee, string Phone, string flod) {
+            object[] results = this.Invoke("orders", new object[] {
+                        tid,
+                        Provinces,
+                        City,
+                        District,
+                        Address,
+                        Consignee,
+                        Phone,
+                        flod});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ordersAsync(string tid, string Provinces, string City, string District, string Address, string Consignee, string Phone, string flod) {
+            this.ordersAsync(tid, Provinces, City, District, Address, Consignee, Phone, flod, null);
+        }
+        
+        /// <remarks/>
+        public void ordersAsync(string tid, string Provinces, string City, string District, string Address, string Consignee, string Phone, string flod, object userState) {
+            if ((this.ordersOperationCompleted == null)) {
+                this.ordersOperationCompleted = new System.Threading.SendOrPostCallback(this.OnordersOperationCompleted);
+            }
+            this.InvokeAsync("orders", new object[] {
+                        tid,
+                        Provinces,
+                        City,
+                        District,
+                        Address,
+                        Consignee,
+                        Phone,
+                        flod}, this.ordersOperationCompleted, userState);
+        }
+        
+        private void OnordersOperationCompleted(object arg) {
+            if ((this.ordersCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ordersCompleted(this, new ordersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("myheaderValue")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/reg", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool reg(string user, string pass, string session) {
+            object[] results = this.Invoke("reg", new object[] {
+                        user,
+                        pass,
+                        session});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void regAsync(string user, string pass, string session) {
+            this.regAsync(user, pass, session, null);
+        }
+        
+        /// <remarks/>
+        public void regAsync(string user, string pass, string session, object userState) {
+            if ((this.regOperationCompleted == null)) {
+                this.regOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregOperationCompleted);
+            }
+            this.InvokeAsync("reg", new object[] {
+                        user,
+                        pass,
+                        session}, this.regOperationCompleted, userState);
+        }
+        
+        private void OnregOperationCompleted(object arg) {
+            if ((this.regCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.regCompleted(this, new regCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("myheaderValue")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Deupinhd", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool Deupinhd(string hdname, string seller, string code, string title, string Seller_ID, string cfg, string oldhdname, string oldseller, string odlcode, string oldtitle) {
             object[] results = this.Invoke("Deupinhd", new object[] {
@@ -1087,7 +1175,7 @@ namespace WindowsFormsApplication1.DeliveryPrintService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5473")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5476")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1571,6 +1659,58 @@ namespace WindowsFormsApplication1.DeliveryPrintService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5420")]
+    public delegate void ordersCompletedEventHandler(object sender, ordersCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5420")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ordersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ordersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5420")]
+    public delegate void regCompletedEventHandler(object sender, regCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5420")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class regCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal regCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

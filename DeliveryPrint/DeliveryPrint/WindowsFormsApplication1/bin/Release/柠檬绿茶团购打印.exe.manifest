@@ -105,26 +105,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="柠檬绿茶团购打印.exe" size="2428416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="柠檬绿茶团购打印.exe" size="2436096">
       <assemblyIdentity name="柠檬绿茶团购打印" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>njSwjxeMiHLCAnPex0Tz4eDqH8s=</dsig:DigestValue>
+        <dsig:DigestValue>8YpwnOg9RJhvVnzjyQIHG84N2BQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="柠檬绿茶团购打印.XmlSerializers.dll" size="110592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="柠檬绿茶团购打印.XmlSerializers.dll" size="118784">
       <assemblyIdentity name="柠檬绿茶团购打印.XmlSerializers" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>eXbV41hXcTABIIaac6ko67Uh94g=</dsig:DigestValue>
+        <dsig:DigestValue>OKPLJPaTWeffZ93g0/4o5O9xnRU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

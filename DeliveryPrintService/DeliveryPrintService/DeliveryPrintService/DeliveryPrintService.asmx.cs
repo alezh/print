@@ -452,6 +452,40 @@ namespace DeliveryPrintService
                 //throw;
             }
         }
+        [WebMethod(Description = "订单修改")]
+        [SoapHeader("NSoapVar")]
+        public bool orders(string tid, string Provinces, string City, string District, string Address, string Consignee, string Phone, string flod)
+        {
+            try
+            {
+                if (!CheckSoapHead())
+                {
+                    return false;
+                }
+                return new DeliveryPrintBC().orders(tid, Provinces, City, District, Address, Consignee, Phone, flod);
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw;
+            }
+        }
+
+        [WebMethod(Description = "注册")]
+        [SoapHeader("NSoapVar")]
+        public bool reg(string user, string pass, string session)
+        { try
+            {
+                string strPassword = StringTools.MD5Encode(pass).ToUpper();
+                return new DeliveryPrintBC().reg(user, strPassword, session);
+            }
+            catch (Exception)
+           {
+               return false;
+               //throw;
+           }
+        }
+
         [WebMethod(Description = "更新活动")]
         [SoapHeader("NSoapVar")]
         public bool Deupinhd(string hdname, string seller, string code, string title, string Seller_ID, string cfg, string oldhdname, string oldseller, string odlcode, string oldtitle)

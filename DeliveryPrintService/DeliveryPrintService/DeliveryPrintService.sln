@@ -11,21 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "TestFrom\Test.cspro
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://192.168.2.253:8080/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = DeliveryPrintService\\DeliveryPrintService.csproj
-		SccProjectName1 = DeliveryPrintService
-		SccLocalPath1 = DeliveryPrintService
-		SccProjectUniqueName2 = ..\\ServiceLib\\ServiceLib\\ServiceLib.csproj
-		SccProjectName2 = ../ServiceLib/ServiceLib
-		SccLocalPath2 = ..\\ServiceLib\\ServiceLib
-		SccProjectUniqueName3 = TestFrom\\Test.csproj
-		SccProjectName3 = TestFrom
-		SccLocalPath3 = TestFrom
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
 		Debug|Any CPU = Debug|Any CPU
@@ -68,5 +53,20 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.2.253:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DeliveryPrintService\\DeliveryPrintService.csproj
+		SccProjectName1 = DeliveryPrintService
+		SccLocalPath1 = DeliveryPrintService
+		SccProjectUniqueName2 = ..\\ServiceLib\\ServiceLib\\ServiceLib.csproj
+		SccProjectName2 = ../ServiceLib/ServiceLib
+		SccLocalPath2 = ..\\ServiceLib\\ServiceLib
+		SccProjectUniqueName3 = TestFrom\\Test.csproj
+		SccProjectName3 = TestFrom
+		SccLocalPath3 = TestFrom
 	EndGlobalSection
 EndGlobal

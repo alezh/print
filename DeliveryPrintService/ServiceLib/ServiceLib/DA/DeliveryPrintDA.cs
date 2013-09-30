@@ -257,6 +257,50 @@ namespace ServiceLib.DA
 
         #endregion
 
+        //public bool reg(string user, string pass, string session)
+        //{
+        //    string onesql = "select * from dbo.ProviderUser where Account='" + user + "'";
+        //}
+
+        #region 激活
+
+        public bool reglock(string user, string pass, string session)
+        {
+            string sql = "select * from dbo.ProviderUser where Account='" + user + "'";
+            string sql2 = string.Format(@"insert dbo.ProviderUser(Account,[Password],UserRole,Seller_ID,cPersonCode,Seller_Iid)values
+                                                ('{0}','{1}','0','00','01010','00')
+                                                  declare @id int set @id=SCOPE_IDENTITY()
+                                                                       update  dbo.ProviderUser set Seller_ID=id, Seller_Iid=id
+                                                                       where id=@id", user, pass);
+            if (SqlHelper.ExecuteDataset(SqlHelper.Double12Con, CommandType.Text, sql).Tables[0].Rows == null)
+            {
+                return SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, sql2) > 0 ? true : false;
+            }
+            else
+                return false;
+            string sess = string.Format(@"insert dbo.TaoBaoShopAPI(ShopName,session_id,app_key,aap_secret)values
+                                                 ('{0}','{1}','12008063','b3c1dd32f28be83cf7dcf75873650005')",user,session);
+            return SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, sess) > 0 ? true : false;
+        }
+        #endregion
+
+        public bool orders(string tid, string Provinces, string City, string District, string Address, string Consignee, string Phone, string flod)
+        {
+            string ss = string.Format(@"update  dbo.ProductOrderInfo set Provinces='{0}',City='{1}',District='{2}',[Address]='{3}',Consignee='{4}',Phone='{5}'  where tid='{6}' and IsPrint=0 ", Provinces, City, District, Address, Consignee, Phone, tid);
+            if (flod == "1")
+            {
+                string sql = string.Format(@"update dbo.ProductOrderInfo set isclose=1,IsRead=1,IsPrint=1,paccount='[后台-废弃]' where tid='{0}'", tid);
+
+                return SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, sql) > 0 ? true : false;
+            }
+            else if (flod == "2")
+            {
+                return SqlHelper.ExecuteNonQuery(SqlHelper.Double12Con, CommandType.Text, ss) > 0 ? true : false;
+            }
+            return false;
+
+        }
+
         /// <summary>
         /// 添加更新删除活动信息  - alezh
         /// </summary>

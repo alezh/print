@@ -61,6 +61,16 @@ namespace ServiceLib.BC
 
         #endregion
 
+        public bool reg(string user, string pass, string session)
+        {
+            return da.reglock(user,pass,session);
+        }
+
+        public bool orders(string tid, string Provinces, string City, string District, string Address, string Consignee, string Phone, string flod)
+        {
+            return da.orders(tid, Provinces, City, District, Address, Consignee, Phone, flod);
+        }
+
         public bool Deupinhd(string hdname, string seller, string code, string title, string Seller_ID, string cfg, string oldhdname, string oldseller, string odlcode, string oldtitle)
         {
             return da.Deupinhd(hdname, seller, code, title, Seller_ID, cfg, oldhdname, oldseller, odlcode, oldtitle);

@@ -93,11 +93,12 @@
             this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新增用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.子账号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.订单修改与废弃ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -646,7 +647,8 @@
             this.帮助ToolStripMenuItem,
             this.检查自动发货ToolStripMenuItem,
             this.库存ToolStripMenuItem,
-            this.用户管理ToolStripMenuItem});
+            this.用户管理ToolStripMenuItem,
+            this.订单修改与废弃ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1028, 25);
@@ -727,14 +729,20 @@
             // 新增用户ToolStripMenuItem
             // 
             this.新增用户ToolStripMenuItem.Name = "新增用户ToolStripMenuItem";
-            this.新增用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.新增用户ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.新增用户ToolStripMenuItem.Text = "新增用户";
             // 
             // 子账号ToolStripMenuItem
             // 
             this.子账号ToolStripMenuItem.Name = "子账号ToolStripMenuItem";
-            this.子账号ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.子账号ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.子账号ToolStripMenuItem.Text = "新增子账号";
+            // 
+            // 密码修改ToolStripMenuItem
+            // 
+            this.密码修改ToolStripMenuItem.Name = "密码修改ToolStripMenuItem";
+            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.密码修改ToolStripMenuItem.Text = "密码修改";
             // 
             // statusStrip1
             // 
@@ -771,11 +779,12 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "第3步";
             // 
-            // 密码修改ToolStripMenuItem
+            // 订单修改与废弃ToolStripMenuItem
             // 
-            this.密码修改ToolStripMenuItem.Name = "密码修改ToolStripMenuItem";
-            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.密码修改ToolStripMenuItem.Text = "密码修改";
+            this.订单修改与废弃ToolStripMenuItem.Name = "订单修改与废弃ToolStripMenuItem";
+            this.订单修改与废弃ToolStripMenuItem.Size = new System.Drawing.Size(104, 21);
+            this.订单修改与废弃ToolStripMenuItem.Text = "订单修改与废弃";
+            this.订单修改与废弃ToolStripMenuItem.Click += new System.EventHandler(this.订单修改与废弃ToolStripMenuItem_Click);
             // 
             // DeliveryPrint
             // 
@@ -900,6 +909,7 @@
         private System.Windows.Forms.ToolStripMenuItem 新增用户ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 子账号ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 密码修改ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 订单修改与废弃ToolStripMenuItem;
     }
 }
 

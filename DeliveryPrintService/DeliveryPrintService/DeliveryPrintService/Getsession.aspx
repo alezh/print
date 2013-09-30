@@ -8,13 +8,21 @@
     <title>无标题页</title>
 
 </head>
+<script type="text/javascript" language="javascript">
+function OnCopy()
+{
+    form1.TextBox1.focus();
+    document.execCommand("selectAll");
+    document.execCommand("copy");
+}
+</script>
 
 <body>
     <form id="form1" runat="server">
     <div>    
-        <asp:TextBox ID="TextBox1" runat="server" Width="772px"></asp:TextBox>
-    <input type="button" name="anniu1" onClick='bb()' value="复制"> </input>
-
+        
+        <asp:TextBox ID="TextBox1" runat="server" Width="605px"></asp:TextBox>    
+<asp:Button ID="Button1" runat="server" Text="Button" Height="21px" Width="74px" />
     </div>    
     </form>
 </body>

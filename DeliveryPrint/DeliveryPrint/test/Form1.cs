@@ -21,11 +21,12 @@ namespace test
         private void button1_Click(object sender, EventArgs e)
         {
             string sd = "";
-            string s = "2013-07-27-拖鞋-G00046|beautyaction&G00046#asdsssss";
+            string s = "2013-09-26-拖鞋-J13412|柠檬绿茶居家日用旗舰店";
+           string  code = s.Substring(s.LastIndexOf("|") - 6, 6);
             int kl = s.LastIndexOf("|");
             int DD = s.LastIndexOf("#");
             int ds = s.LastIndexOf("&");
-            s = s.Substring(kl + 1, ds - kl - 1).Trim();
+            s = code.Substring(kl + 1, ds - kl - 1).Trim();
             
 
             //string pattern = @"^[A-Z]+\d+[A-Z]+$";//正则式子  字母开头 字母和数字重复多次 字母结束  

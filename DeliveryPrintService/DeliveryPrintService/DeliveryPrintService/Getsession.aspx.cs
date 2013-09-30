@@ -55,11 +55,7 @@ namespace DeliveryPrintService
                         @"update TaoBaoShopAPI set session_id = '{0}' ,ChangeTime = getdate() ,IsValid = 1, 
                             FailureTime = null where app_key = '{1}'",
                         session, appKey);
-
-
-
-                TextBox1.Text = session;
-
+                TextBox1.Text = session;                
             }
         }
 

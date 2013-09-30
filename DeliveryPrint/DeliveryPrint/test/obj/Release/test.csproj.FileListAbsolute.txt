@@ -31,3 +31,14 @@ G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\Deli
 G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.exe
 G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.pdb
 G:\刘殷嘉\双12专用打印(团购的代码)\gethuob\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.XmlSerializers.dll
+G:\github\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.exe.config
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.exe
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.pdb
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.XmlSerializers.dll
+G:\github\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.exe
+G:\github\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.XmlSerializers.dll
+G:\github\print\DeliveryPrint\DeliveryPrint\test\bin\Release\test.pdb
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\ResolveAssemblyReference.cache
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.Form1.resources
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.Properties.Resources.resources
+G:\github\print\DeliveryPrint\DeliveryPrint\test\obj\Release\test.csproj.GenerateResource.Cache

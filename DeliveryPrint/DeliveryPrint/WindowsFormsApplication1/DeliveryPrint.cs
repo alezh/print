@@ -3791,6 +3791,14 @@ namespace WindowsFormsApplication1
             hdname.locd();
         }
 
+        private void 订单修改与废弃ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            orders1 oreder = new orders1();
+            oreder.address = m_Address;
+            oreder.Show();
+            oreder.Activate();
+        }
+
 
 
 

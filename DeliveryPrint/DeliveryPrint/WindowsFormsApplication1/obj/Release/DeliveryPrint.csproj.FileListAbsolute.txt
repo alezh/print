@@ -506,3 +506,4 @@ G:\github\print\DeliveryPrint\DeliveryPrint\WindowsFormsApplication1\bin\Release
 G:\github\print\DeliveryPrint\DeliveryPrint\WindowsFormsApplication1\obj\Release\柠檬绿茶团购打印.exe.manifest
 G:\github\print\DeliveryPrint\DeliveryPrint\WindowsFormsApplication1\obj\Release\柠檬绿茶团购打印.application
 G:\github\print\DeliveryPrint\DeliveryPrint\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form_user.resources
+G:\github\print\DeliveryPrint\DeliveryPrint\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.orders1.resources
